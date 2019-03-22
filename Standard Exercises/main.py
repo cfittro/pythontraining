@@ -2,6 +2,8 @@ import sys
 import datetime as dt
 import math
 import os
+import calendar
+from fractions import Fraction as fr
 
 #1: Write a Python program to print the following string in a specific format (see the output).
 print('Twinkle, twinkle, little star, \n\tHow I wonder what you are! \n\t\tUp above the world so high, \n\t\tLike a diamond in the sky. \nTwinkle, twinkle, little star, \n\tHow I wonder what you are')
@@ -69,3 +71,39 @@ def raised_twice ():
 
 #commenting out so it doesn't prompt every time
 #raised_twice()
+
+#11: Write a Python program to print the documents (syntax, description etc.) of Python built-in function(s). 
+print(abs.__doc__)
+
+#12: Write a Python program to print the calendar of a given month and year. Note :Use 'calendar' module. 
+def month ():
+    y = int(input("Input the desired year: "))
+    m = int(input("Input the desired month: "))
+    calendar.prmonth(y,m)
+
+#commenting out so it doesn't prompt every time
+#month()
+
+#13: Write a Python program to print the following here document.
+print("""a string that you "don't" have to escape
+This
+is a ....... multi-line
+heredoc string --------> example""")
+
+#14: Write a Python program to calculate number of days between two dates.
+def datediff():
+    start_string = input("Input the start date (YYYY-MM-DD): ")
+    end_string = input("Input the end date (YYYY-MM-DD): ")
+    start_year, start_month, start_day = map(int, start_string.split("-"))
+    end_year, end_month, end_day = map(int, end_string.split("-"))
+    start_date = dt.date(start_year,start_month,start_day)
+    end_date = dt.date(end_year,end_month,end_day)
+    delta = end_date - start_date
+    print(delta.days)
+
+#commenting out so it doesn't prompt every time
+#datediff()
+
+#15: Write a Python program to get the volume of a sphere with radius 6.
+volume = math.pi * (6**3) * fr(4,3)
+print(volume)
